@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  background-color: #e8f1f7; 
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.fondo-patron {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: radial-gradient(#adb5bd 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  opacity: 0.4;
+}
+
+.page {
+  width: 100%;
+  max-width: 700px; 
+  position: relative;
+}
+
+.logo {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.add-box {
+  display: flex;
+  border: 3px solid #000;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  background: #fff;
+  box-shadow: 4px 4px 0px #000; 
+}
+
+.add-box input {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.add-box button {
+  background: #ffdae9; 
+  border-left: 3px solid #000;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-box button:hover {
+  background: #ffc2da;
+}
+
+
+.card {
+  border: 3px solid #000;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 8px 8px 0px #000; 
+}
+
+
+.card-header {
+  display: flex;
+  border-bottom: 3px solid #000;
+}
+
+.mark-all {
+  background: #8de2d0; 
+  border: none;
+  border-right: 3px solid #000;
+  padding: 14px 25px;
+  font-weight: 800;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.slogan {
+  flex: 1;
+  padding: 14px 20px;
+  font-weight: 600;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+
+.card-body {
+  padding: 50px 40px;
+  text-align: center;
+  background: #fff;
+}
+
+.empty-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.tips {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  display: inline-block; 
+}
+
+.tips li {
+  margin-bottom: 12px;
+  color: #444;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+.card-footer {
+  border-top: 3px solid #000;
+  padding: 15px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #666;
+  background: #fafafa;
+}
+
+
+.sidebar {
+  position: absolute;
+  right: -170px;
+  top: 120px;
+  width: 150px;
+  border: 3px solid #000;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.sidebar-title {
+  background: #8de2d0;
+  padding: 10px;
+  font-weight: 900;
+  text-align: center;
+  border-bottom: 3px solid #000;
+  font-size: 12px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  border-bottom: 2px solid #000;
+  font-weight: 700;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.sidebar button:last-child {
+  border-bottom: none;
+}
+
+.sidebar button:hover {
+  background: #f0f0f0;
+}
+
+.sidebar button.active {
+  background: #ffdae9;
+}
+/* LISTA DE TAREAS */
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #000000; /* Borde grueso negro */
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 0px #000000; /* Sombra Neubrutalist */
+  transition: transform 0.1s;
+}
+
+.todo-item:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* CHECKBOX PERSONALIZADO */
+.task-check {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #8de2d0; /* Color menta */
+  border: 2px solid #000;
+}
+
+/* TEXTO */
+.task-text {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+
+.todo-item.completed {
+  background: #e0f7f3; /* Fondo menta suave al completar */
+}
+
+.todo-item.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* BOTÓN ELIMINAR */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ff7e7e;
+  color: white;
+  transform: scale(1.1);
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .sidebar-title {
+    width: 100%;
+  }
+
+  .sidebar button {
+    width: auto;
+    flex: 1;
+    border-bottom: none;
+    border-right: 2px solid #000;
+    text-align: center;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="frontend/style.css" />
+      <script src="frontend/app.js" defer></script>
+</head>
+<body>
+
+  <div class="fondo-patron"></div>
+
+  <div class="page">
+
+    <h1 class="logo">TODO</h1>
+
+    <div class="add-box">
+      <input
+        id="new-task"
+        type="text"
+        placeholder="Add a to-do item..."
+        aria-label="New task"
+      />
+      <button id="add-btn" aria-label="Add task">Add</button>
+    </div>
+
+    <div class="card">
+
+   <div class="card-header">
+  <button class="mark-all">Mark All Done</button>
+  <div class="slogan">Act Now, Simplify Life. 🧋</div>
+</div>
+
+      <div class="card-body" id="card-body">
+        
+        <ul id="task-list"></ul>
+      </div>
+
+      <div class="card-footer">
+        <span id="counter">0 items remaining</span>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+  <div class="sidebar-title">OPEN ✨</div>
+
+  <button class="active" data-filter="all">All</button>
+  <button data-filter="active">Active</button>
+  <button data-filter="completed">Completed</button>
+
+  <button id="clear-completed" class="clear-btn">
+    Clear Completed
+  </button>
+</aside>
+
+  </div>
+
+</body>
+</html>
