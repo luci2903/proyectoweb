@@ -38,7 +38,7 @@ app.get("/api/todos", async (req, res) => {
       sql += " WHERE completed = 1";
     }
     
-    sql += " ORDER BY id DESC"; // Ordenamos por las más nuevas primero
+    sql += " ORDER BY id DESC"; 
 
     const [rows] = await db.query(sql);
     res.json({ data: rows, error: null });
