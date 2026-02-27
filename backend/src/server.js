@@ -10,9 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-/* =========================
-   MYSQL CONFIG (Usando .env)
-========================= */
+
 const db = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
@@ -22,16 +20,12 @@ const db = mysql.createPool({
   connectionLimit: 10,
 });
 
-// Probar conexión al iniciar
+
 db.getConnection()
   .then(() => console.log(" Conectado a MySQL con éxito"))
   .catch(err => console.error(" Error de conexión:", err.message));
 
-/* =========================
-   CRUD TODOS
-========================= */
 
-// LISTAR TAREAS
 app.get("/api/todos", async (req, res) => {
   try {
     const { status } = req.query;
@@ -53,7 +47,6 @@ app.get("/api/todos", async (req, res) => {
   }
 });
 
-// CREAR TAREA
 app.post("/api/todos", async (req, res) => {
   try {
     const { title } = req.body;
@@ -70,7 +63,6 @@ app.post("/api/todos", async (req, res) => {
   }
 });
 
-// ACTUALIZAR TAREA (Check/Uncheck)
 app.patch("/api/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -86,7 +78,8 @@ app.patch("/api/todos/:id", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-// CLEAR COMPLETED
+
+
 app.delete("/api/todos/clear/completed", async (req, res) => {
   try {
     const [result] = await db.query("DELETE FROM todos WHERE completed = 1");
@@ -95,7 +88,8 @@ app.delete("/api/todos/clear/completed", async (req, res) => {
     res.status(500).json({ error: "No se pudo limpiar la base de datos" });
   }
 });
-// ELIMINAR TAREA
+
+
 app.delete("/api/todos/:id", async (req, res) => {
   try {
     await db.query("DELETE FROM todos WHERE id = ?", [req.params.id]);
@@ -109,7 +103,7 @@ app.listen(PORT, () => {
   console.log(` API corriendo en http://localhost:${PORT}`);
 });
 
-// MARK ALL DONE
+
 app.put('/api/todos/mark-all', async (req, res) => {
   try {
     await db.query(
